@@ -10,4 +10,5 @@ block content
   if leads
     h1 Leads
     for lead in leads
-      p #{lead.email}
+      p 
+        a(href="/lead/" + lead.id) #{lead.email}

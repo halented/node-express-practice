@@ -18,5 +18,21 @@ exports.submit = function (req, res, next) {
 exports.show_leads = function (req, res, next) {
     // we will need to fetch from the database here. findAll is  a sequelize method
     models.Lead.findAll()
-        .then(data => res.render('landing', { leads: data, title: "Hockeystick"}))
+        .then(data => {
+            res.render('landing', { leads: data, title: "Hockeystick" })
+        })
+}
+
+exports.show_single_lead = function (req, res, next) {
+    // query the db for lead with the parameter that comes through the url :lead_id
+    // params live inside the req argument
+    return models.Lead.findOne({
+        where: {
+            id: req.params.lead_id
+        }
+    }).then(lead=>{
+        res.render('lead', {lead: lead})
+    }).catch(err => {
+        res.render('lead', {error: "Who knows"})
+    })
 }
