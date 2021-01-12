@@ -7,3 +7,7 @@ block content
     label Whut 
     input(name='lead_email' type="email", placeholder="here;s sfftuff")
     button(type="submit") Submit
+  if leads
+    h1 Leads
+    for lead in leads
+      p #{lead.email}
