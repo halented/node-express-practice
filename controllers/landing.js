@@ -30,9 +30,37 @@ exports.show_single_lead = function (req, res, next) {
         where: {
             id: req.params.lead_id
         }
-    }).then(lead=>{
-        res.render('lead', {lead: lead})
+    }).then(lead => {
+        res.render('lead', { lead: lead })
     }).catch(err => {
-        res.render('lead', {error: "Who knows"})
+        res.render('lead', { error: "Who knows" })
+    })
+}
+
+
+exports.show_edit_lead = function (req, res, next) {
+    // This should render a form
+    return models.Lead.findOne({
+        where: {
+            id: req.params.lead_id
+        }
+    }).then(lead => {
+        res.render('lead_form', { lead: lead })
+    }).catch(err => {
+        res.render('landing', { error: "Who knows" })
+    })
+}
+
+exports.submit_edit_lead = function (req, res, next) {
+    // This should receive input from the from inside the...body? or the params
+    // and edit the correct lead with some sequelize method like lead.edit({email: req.body.email})
+    return models.Lead.findOne({
+        where: {
+            id: req.params.lead_id
+        }
+    }).then(lead => {
+        res.render('lead_form', { lead: lead })
+    }).catch(err => {
+        res.render('landing', { error: "Who knows" })
     })
 }

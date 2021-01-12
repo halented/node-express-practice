@@ -2,4 +2,7 @@ extends layout
 
 block content
     h1 Lead
-    p #{error || lead.email}
+    p 
+        span #{error || lead.email}
+        br
+        a( href="/lead/"+ lead.id + '/edit') Edit
