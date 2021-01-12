@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 
-
 // if we were to call the express variable by itself, that's a different thing. right here we are enacting the constructor method for express 
 var app = express();
 

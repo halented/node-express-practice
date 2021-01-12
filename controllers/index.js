@@ -1,3 +1,3 @@
 exports.index = function (req, res, next) {
-    res.render('index', { title: 'Wonderland' });
+    res.render('index', { title: 'Slammo' });
 }
