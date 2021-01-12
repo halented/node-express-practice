@@ -5,6 +5,7 @@ let landing = require('../controllers/landing')
 /* GET home page. */
 // the HTTP request here is sending an actual GET to the server, and the res.render (res here is short for respponse) method is in charge of what response is sent back. I have typically worked with sending JSON back as a response, but this is sending back an HTML page (found in the matching views file.)
 router.get('/', landing.get_landing);
+router.post('/', landing.submit);
 
 module.exports = router;
 
