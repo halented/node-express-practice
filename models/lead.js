@@ -5,7 +5,7 @@
 module.exports = (sequelize, DataTypes) => {
     var Lead = sequelize.define('Lead', {
         id: {
-            tpye: DataTypes.UUID,
+            type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             allowNull: false,
             primaryKey: true
