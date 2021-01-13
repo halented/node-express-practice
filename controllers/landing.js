@@ -82,13 +82,13 @@ exports.delete_lead = function (req, res, next) {
 }
 
 exports.delete_lead_json = function (req, res, next) {
-    // destroy single lead using json
+    // destroy single lead using javascript function instead. still using sequelize. not sure why JSON is involved here. 
     return models.Lead.destroy({
         where: {
             id: req.params.lead_id
         }
     }).then(results => {
-        res.send({message: "Success"})
+        res.send({message: `Success, deleted ${req.params.lead_id}`})
     }).catch(err => {
         res.render('landing', { error: "Who knows" })
     })

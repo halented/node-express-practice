@@ -8,6 +8,7 @@ function deleteLead(leadId){
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         data: JSON.stringify({leadId}),
+        // not sure why this delete req is a post type. i wonder about restful routing here. typically that would accept a method of delete and a different URL. perhaps because the resource is not being served via URL here. 
         type: 'POST',
         success: (res=> {
             console.log("SUCCESS: ", res)
