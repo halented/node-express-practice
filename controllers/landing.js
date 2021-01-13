@@ -67,3 +67,16 @@ exports.submit_edit_lead = function (req, res, next) {
         res.render('landing', { error: "Who knows" })
     })
 }
+
+exports.delete_lead = function (req, res, next) {
+    // destroy single lead
+    return models.Lead.destroy({
+        where: {
+            id: req.params.lead_id
+        }
+    }).then(results => {
+        res.redirect('/leads')
+    }).catch(err => {
+        res.render('landing', { error: "Who knows" })
+    })
+}
