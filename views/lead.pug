@@ -1,6 +1,10 @@
-extends layout
+doctype html
+include common/footer.pug
+include common/head.pug
 
-block content
+html(lang='en')
+  +head("WIMPIII")
+  body
     h1 Lead
     p 
         span #{error || lead.email}
@@ -8,3 +12,4 @@ block content
         a(href="/lead/"+ lead.id + '/edit') Edit
         form(action='/lead/'+lead.id+'/delete', method="POST")
             button(type='submit') Delete
+    +footer()

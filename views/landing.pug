@@ -1,6 +1,8 @@
 doctype html
+include common/footer.pug
+include common/head.pug
+
 html(lang='en')
-  include common/head.pug
   +head("WIMPIII")
   body
     h1= title
@@ -21,6 +23,5 @@ html(lang='en')
           | 
           button(onclick=`deleteLead('${lead.id}')`) Delete
     script(src='https://code.jquery.com/jquery-3.5.1.min.js')
-    include common/footer.pug
     +footer()
     script(src='javascripts/leads.js')
