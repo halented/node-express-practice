@@ -8,7 +8,9 @@ router.get('/', landing.get_landing);
 router.post('/', landing.submit);
 router.get('/leads', landing.show_leads);
 router.get('/lead/:lead_id', landing.show_single_lead);
+// shows the form
 router.get('/lead/:lead_id/edit', landing.show_edit_lead);
+// actually submits the edit
 router.post('/lead/:lead_id/edit', landing.submit_edit_lead);
 
 module.exports = router;
