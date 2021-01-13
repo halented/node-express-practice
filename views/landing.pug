@@ -4,7 +4,7 @@ block content
   h1= title
   h2 Welcome to #{title}
   if error
-    p Unable to complete request. Please try again.
+    p #{error}
   form(action='/', method='POST')
     label Whut 
     input(name='lead_email' type="email", placeholder="here;s sfftuff")

@@ -1,0 +1,8 @@
+extends ../layout
+
+block content
+    p Editing #[strong #{lead.email}]
+    form(action='/lead/' +lead.id+ "/edit" method='POST')
+        input(name='lead_email' type="email" placeholder="here;s sfftuff" value=lead.email)
+        br
+        button(type="submit") Save

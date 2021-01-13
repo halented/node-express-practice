@@ -45,7 +45,7 @@ exports.show_edit_lead = function (req, res, next) {
             id: req.params.lead_id
         }
     }).then(lead => {
-        res.render('lead_form', { lead: lead })
+        res.render('lead/edit_lead', { lead: lead })
     }).catch(err => {
         res.render('landing', { error: "Who knows" })
     })
@@ -53,13 +53,16 @@ exports.show_edit_lead = function (req, res, next) {
 
 exports.submit_edit_lead = function (req, res, next) {
     // This should receive input from the from inside the...body? or the params
-    // and edit the correct lead with some sequelize method like lead.edit({email: req.body.email})
-    return models.Lead.findOne({
+    // and edit the correct lead with some sequelize method like lead.edit({email: req.body.lead_email})
+    return models.Lead.update({
+        email: req.body.lead_email
+    }, {
         where: {
             id: req.params.lead_id
         }
-    }).then(lead => {
-        res.render('lead_form', { lead: lead })
+    }).then(results => {
+        // i believe he said you actually get the number of successfully edited entries back, not the lead itself?
+        res.redirect('/lead/'+req.params.lead_id)
     }).catch(err => {
         res.render('landing', { error: "Who knows" })
     })
