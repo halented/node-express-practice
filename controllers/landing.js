@@ -75,7 +75,20 @@ exports.delete_lead = function (req, res, next) {
             id: req.params.lead_id
         }
     }).then(results => {
-        res.redirect('/leads')
+        res.render('landing', {message: "Entry Deleted"})
+    }).catch(err => {
+        res.render('landing', { error: "Who knows" })
+    })
+}
+
+exports.delete_lead_json = function (req, res, next) {
+    // destroy single lead using json
+    return models.Lead.destroy({
+        where: {
+            id: req.params.lead_id
+        }
+    }).then(results => {
+        res.send({message: "Success"})
     }).catch(err => {
         res.render('landing', { error: "Who knows" })
     })
